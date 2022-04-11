@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+#This program is designed to automatically find untouched files consuming space in specified directories
+size=$1
+days=$2
+read -p "Please specify directory name: " directory_name
+echo -e "\nFinding files from $directory_name last used $days ago"
+find $directory_name -type f -size $1 -mtime $2 -exec rm -f {} \;
+echo -e "Files removed"
+
+
+
+
